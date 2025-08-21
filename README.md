@@ -180,98 +180,14 @@ $('#postModal').modal('show');
 - Formulario de login con validación básica
 - Campos requeridos y validación HTML5
 
-## 6. Configuración de Despliegue
+## 6. Configuración
 
 ### 6.1 Servidor Web Recomendado
 ```nginx
-server {
-    listen 80;
-    server_name dominio.com;
-    root /path/to/project;
-    index index.html;
-
-    location ~* \.(css|js|png|jpg|jpeg|gif|ico|webp)$ {
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
-}
+python -m http.server
 ```
 
-### 6.2 Requisitos del Sistema
-- **Servidor Web**: Nginx/Apache/IIS
-- **Protocolo**: HTTP/HTTPS
-- **Compatibilidad**: Browsers modernos (Chrome 60+, Firefox 55+, Safari 11+)
 
-## 7. Control de Versiones
+### 7 Pruebas Realizadas
 
-### 7.1 Repositorio Git
-- **Plataforma**: GitHub
-- **URL**: https://github.com/xXJuanDavidXx/Repo-Sena.git
-- **Rama principal**: `master`
-
-### 7.2 Historial de Commits
-```bash
-git log --oneline
-cfa06e8 (HEAD -> master) Proyecto de frontend para el SENA.
-```
-
-## 8. Testing y Validación
-
-### 8.1 Pruebas Realizadas
-- [x] Validación HTML5 (W3C Validator)
-- [x] Pruebas de responsividad
-- [x] Testing cross-browser
-- [x] Verificación de enlaces
-- [x] Pruebas de formularios
-
-### 8.2 Métricas de Performance
-- **Tiempo de carga**: <3 segundos
-- **Tamaño total**: ~15MB (incluyendo imágenes)
-- **Compatibilidad móvil**: 100%
-
-## 9. Mantenimiento y Escalabilidad
-
-### 9.1 Tareas de Mantenimiento
-- Actualización periódica de dependencias CDN
-- Optimización continua de imágenes
-- Backup regular del contenido
-- Monitoreo de performance
-
-### 9.2 Posibles Mejoras Futuras
-- Implementación de backend (Node.js/Python/PHP)
-- Sistema de comentarios dinámico
-- Panel de administración completo
-- Integración con CMS
-- API REST para gestión de contenido
-- Sistema de búsqueda avanzado
-
-## 10. Conclusiones
-
-El proyecto cumple satisfactoriamente con los objetivos planteados, demostrando competencias en:
-
-- **Desarrollo Frontend**: HTML5, CSS3, JavaScript, Bootstrap
-- **Diseño Responsivo**: Adaptabilidad multiplataforma
-- **UX/UI**: Interfaz intuitiva y moderna
-- **Optimización**: Performance y SEO
-- **Control de Versiones**: Git y GitHub
-- **Documentación Técnica**: Presente informe
-
-### 10.1 Resultados Obtenidos
-- Sitio web funcional y responsive
-- Sistema de blog operativo
-- Integración exitosa con GitHub
-- Documentación técnica completa
-
-### 10.2 Competencias Demostradas
-- Maquetación web avanzada
-- Integración de frameworks CSS
-- Desarrollo JavaScript vanilla
-- Optimización web
-- Gestión de proyectos con Git
-
----
-
-**Desarrollado por**: David Jaramillo  
-**Fecha de entrega**: Agosto 2025  
-**Institución**: SENA  
-**Programa**: Desarrollo Web Frontend
+**Pendiente...**
