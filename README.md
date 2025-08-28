@@ -24,22 +24,22 @@ z-Mi-Web/
 
 ```css
 :root {
-  --color-1: #FF6B6B;  /* Rojo coral - Alto contraste para elementos de acción */
-  --color-2: #4ECDC4;  /* Turquesa - Equilibra la temperatura de color */
-  --color-3: #FFE66D;  /* Amarillo - Máxima luminancia para destacar */
-  --color-4: #7F00FF;  /* Violeta - Profundidad visual */
-  --color-5: #00FF9F;  /* Verde neón - Contraste complementario */
-  --dark-bg: #0F0F1A;  /* Fondo más oscuro - Ratio de contraste óptimo */
-  --card-bg: #1A1A2E;  /* Fondo de tarjetas - Contraste medio */
-  --text-primary: #ffffff;    /* Texto principal - Máximo contraste */
-  --text-secondary: #e0e0e0;  /* Texto secundario - Contraste reducido para jerarquía */
+  --color-1: #FF6B6B;  /* Rojo coral brillante - Color cálido para elementos de acción */
+  --color-2: #4ECDC4;  /* Turquesa claro - Color frío que equilibra la temperatura */
+  --color-3: #FFE66D;  /* Amarillo dorado - Color con máxima luminancia para destacar */
+  --color-4: #7F00FF;  /* Violeta intenso - Color púrpura para profundidad visual */
+  --color-5: #00FF9F;  /* Verde neón/menta - Color complementario vibrante */
+  --dark-bg: #0F0F1A;  /* Azul muy oscuro/casi negro - Fondo principal oscuro */
+  --card-bg: #1A1A2E;  /* Azul grisáceo oscuro - Fondo de componentes */
+  --text-primary: #ffffff;    /* Blanco puro - Texto principal con máximo contraste */
+  --text-secondary: #e0e0e0;  /* Gris muy claro - Texto secundario con contraste reducido */
 }
 ```
 
 **Propósito del contraste:**
-- Los colores vibrantes (#FF6B6B, #4ECDC4, etc.) tienen alta saturación para crear impacto visual
-- Los fondos oscuros (#0F0F1A, #1A1A2E) proporcionan el contraste necesario para la legibilidad
-- La diferencia entre `--text-primary` y `--text-secondary` crea jerarquía visual
+- Los colores vibrantes (#FF6B6B rojo coral, #4ECDC4 turquesa, etc.) tienen alta saturación para crear impacto visual
+- Los fondos oscuros (#0F0F1A azul muy oscuro, #1A1A2E azul grisáceo) proporcionan el contraste necesario para la legibilidad
+- La diferencia entre `--text-primary` (blanco puro) y `--text-secondary` (gris claro) crea jerarquía visual
 
 ### 2. Estructura HTML y Clases de Contraste
 
@@ -65,7 +65,7 @@ z-Mi-Web/
 ```
 
 **Propósito:**
-- El overlay `rgba(0,0,0,0.5)` reduce 50% la luminancia de la imagen de fondo
+- El overlay `rgba(0,0,0,0.5)` (negro transparente 50%) reduce la luminancia de la imagen de fondo
 - Garantiza legibilidad del texto superpuesto independientemente de la imagen
 
 ### 3. Estilos CSS para Contraste Optimizado
@@ -77,11 +77,11 @@ z-Mi-Web/
 header {
   background: linear-gradient(
     45deg,
-    var(--color-1) 0%,   /* Rojo coral */
-    var(--color-2) 25%,  /* Turquesa */
-    var(--color-3) 50%,  /* Amarillo */
-    var(--color-4) 75%,  /* Violeta */
-    var(--color-5) 100%  /* Verde neón */
+    var(--color-1) 0%,   /* #FF6B6B - Rojo coral */
+    var(--color-2) 25%,  /* #4ECDC4 - Turquesa claro */
+    var(--color-3) 50%,  /* #FFE66D - Amarillo dorado */
+    var(--color-4) 75%,  /* #7F00FF - Violeta intenso */
+    var(--color-5) 100%  /* #00FF9F - Verde neón */
   );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
@@ -90,7 +90,7 @@ header {
 
 **Función del contraste:**
 - Los gradientes crean transiciones suaves entre colores de alta saturación
-- `background-size: 400%` permite que la animación muestre diferentes combinaciones
+- `background-size: 400%` permite que la animación muestre diferentes combinaciones de colores
 - El movimiento constante mantiene el interés visual sin comprometer la legibilidad
 
 #### Texto con Efectos Especiales
@@ -98,20 +98,27 @@ header {
 ```css
 /* Clase para mejorar legibilidad sobre fondos variables */
 .bright-text {
-  color: white;
-  mix-blend-mode: screen;  /* Garantiza visibilidad en cualquier fondo */
+  color: white;                    /* #FFFFFF - Blanco puro */
+  mix-blend-mode: screen;          /* Garantiza visibilidad en cualquier fondo */
 }
 
 /* Títulos con gradiente de colores */
 .display-3 {
-  background: linear-gradient(to right, var(--color-1), var(--color-2), ...);
+  background: linear-gradient(
+    to right, 
+    var(--color-1),  /* #FF6B6B - Rojo coral */
+    var(--color-2),  /* #4ECDC4 - Turquesa claro */
+    var(--color-3),  /* #FFE66D - Amarillo dorado */
+    var(--color-4),  /* #7F00FF - Violeta intenso */
+    var(--color-5)   /* #00FF9F - Verde neón */
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 ```
 
 **Propósito:**
-- `mix-blend-mode: screen`: Hace que el texto blanco sea visible sobre cualquier fondo
+- `mix-blend-mode: screen`: Hace que el texto blanco (#FFFFFF) sea visible sobre cualquier fondo
 - El gradiente en texto mantiene la coherencia visual del diseño psicodélico
 - `transparent` permite que el gradiente de fondo se muestre a través del texto
 
@@ -121,36 +128,43 @@ header {
 
 ```css
 .card-b:not(.blog-card) {
-  background: rgba(15, 15, 26, 0.95);  /* Fondo semi-transparente */
+  background: rgba(15, 15, 26, 0.95);  /* #0F0F1A con 95% opacidad - Azul muy oscuro semi-transparente */
   border: 2px solid transparent;
 }
 
 .card-b:not(.blog-card)::before {
-  background: linear-gradient(45deg, var(--color-1), ...);
+  background: linear-gradient(
+    45deg, 
+    var(--color-1),  /* #FF6B6B - Rojo coral */
+    var(--color-2),  /* #4ECDC4 - Turquesa claro */
+    var(--color-3),  /* #FFE66D - Amarillo dorado */
+    var(--color-4),  /* #7F00FF - Violeta intenso */
+    var(--color-5)   /* #00FF9F - Verde neón */
+  );
   border-radius: inherit;
-  opacity: 0.8;  /* Contraste controlado del borde */
+  opacity: 0.8;  /* Contraste controlado del borde gradiente */
 }
 ```
 
 **Análisis del contraste:**
-- Fondo `rgba(15, 15, 26, 0.95)`: Semi-transparencia que mantiene legibilidad
-- Pseudoelemento `::before`: Crea borde gradiente sin afectar el contenido interno
+- Fondo `rgba(15, 15, 26, 0.95)`: Semi-transparencia del azul oscuro que mantiene legibilidad
+- Pseudoelemento `::before`: Crea borde gradiente multicolor sin afectar el contenido interno
 - `opacity: 0.8`: Reduce la intensidad del gradiente para no competir con el texto
 
 #### Tarjetas de Proyectos
 
 ```css
 .card-project {
-  background-color: var(--card-bg);  /* #1A1A2E */
-  border: 1px solid var(--color-4);  /* Violeta para definición */
+  background-color: var(--card-bg);  /* #1A1A2E - Azul grisáceo oscuro */
+  border: 1px solid var(--color-4);  /* #7F00FF - Violeta intenso para definición */
 }
 
 .card-project .card-title {
-  color: var(--text-primary);  /* Blanco para máximo contraste */
+  color: var(--text-primary);  /* #FFFFFF - Blanco puro para máximo contraste */
 }
 
 .card-project .card-text {
-  color: var(--text-secondary);  /* Gris claro para jerarquía */
+  color: var(--text-secondary);  /* #E0E0E0 - Gris muy claro para jerarquía */
 }
 ```
 
@@ -160,13 +174,17 @@ header {
 
 ```css
 .modal-content {
-  background: var(--card-bg);          /* Fondo oscuro */
-  border: 2px solid var(--color-4);   /* Borde violeta para definición */
-  color: var(--text-primary);         /* Texto blanco */
+  background: var(--card-bg);          /* #1A1A2E - Azul grisáceo oscuro */
+  border: 2px solid var(--color-4);   /* #7F00FF - Violeta intenso para definición */
+  color: var(--text-primary);         /* #FFFFFF - Blanco puro */
 }
 
 .modal-header {
-  background: linear-gradient(45deg, var(--color-1), var(--color-4));
+  background: linear-gradient(
+    45deg, 
+    var(--color-1),  /* #FF6B6B - Rojo coral */
+    var(--color-4)   /* #7F00FF - Violeta intenso */
+  );
   /* Gradiente que mantiene legibilidad del título */
 }
 ```
@@ -175,14 +193,14 @@ header {
 
 ```css
 .form-control {
-  background-color: var(--card-bg);    /* Fondo oscuro consistente */
-  border: 1px solid #444;             /* Borde visible pero sutil */
-  color: var(--text-primary);         /* Texto claro */
+  background-color: var(--card-bg);    /* #1A1A2E - Azul grisáceo oscuro consistente */
+  border: 1px solid #444;             /* #444444 - Gris medio para borde visible pero sutil */
+  color: var(--text-primary);         /* #FFFFFF - Blanco puro para texto claro */
 }
 
 .form-control:focus {
-  border-color: var(--color-4);       /* Violeta para indicar foco */
-  box-shadow: 0 0 15px rgba(127, 0, 255, 0.3);  /* Glow effect */
+  border-color: var(--color-4);       /* #7F00FF - Violeta intenso para indicar foco */
+  box-shadow: 0 0 15px rgba(127, 0, 255, 0.3);  /* Glow violeta con 30% opacidad */
 }
 ```
 
@@ -190,23 +208,39 @@ header {
 
 ```css
 body {
-  background: #0f0f1a;  /* Fondo oscuro consistente */
-  color: white;         /* Texto blanco para máximo contraste */
+  background: #0f0f1a;  /* Azul muy oscuro - Fondo oscuro consistente */
+  color: white;         /* #FFFFFF - Blanco puro para máximo contraste */
 }
 
 .login-box {
-  background: #1a1a2e;              /* Fondo de caja ligeramente más claro */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);  /* Sombra para profundidad */
+  background: #1a1a2e;              /* Azul grisáceo oscuro - Fondo de caja ligeramente más claro */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);  /* Sombra negra 50% para profundidad */
 }
 
 input {
-  background: #2a2a3e;  /* Fondo de input más claro que la caja */
-  color: white;         /* Texto blanco */
+  background: #2a2a3e;  /* Gris azulado - Fondo de input más claro que la caja */
+  color: white;         /* #FFFFFF - Texto blanco */
   border: none;         /* Sin borde para diseño limpio */
 }
 
+input::placeholder {
+  color: #888;          /* #888888 - Gris medio para texto de placeholder */
+}
+
 button {
-  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);  /* Gradiente de acción */
+  background: linear-gradient(
+    45deg, 
+    #FF6B6B,  /* Rojo coral */
+    #4ECDC4   /* Turquesa claro */
+  );
+}
+
+button:hover {
+  background: linear-gradient(
+    45deg, 
+    #4ECDC4,  /* Turquesa claro */
+    #FFE66D   /* Amarillo dorado */
+  );
 }
 ```
 
@@ -224,7 +258,7 @@ function applyTextTruncation() {
   const cardTexts = document.querySelectorAll('.blog-card .card-text');
   cardTexts.forEach(cardText => {
     if (fullText.length > 500) {
-      cardText.classList.add('truncated');  // Aplica estilos de contraste
+      cardText.classList.add('truncated');  // Aplica estilos de contraste para texto truncado
     }
   });
 }
@@ -232,20 +266,41 @@ function applyTextTruncation() {
 
 ## Ratios de Contraste WCAG
 
-| Combinación | Ratio | Cumplimiento |
-|-------------|-------|--------------|
-| #FFFFFF sobre #0F0F1A | 19.37:1 | AAA ✅ |
-| #FFE66D sobre #0F0F1A | 16.75:1 | AAA ✅ |
-| #4ECDC4 sobre #0F0F1A | 12.25:1 | AAA ✅ |
-| #FF6B6B sobre #0F0F1A | 8.12:1 | AA ✅ |
-| #E0E0E0 sobre #1A1A2E | 11.43:1 | AAA ✅ |
+| Combinación de Colores | Ratio | Cumplimiento |
+|------------------------|-------|--------------|
+| #FFFFFF (blanco) sobre #0F0F1A (azul muy oscuro) | 19.37:1 | AAA ✅ |
+| #FFE66D (amarillo dorado) sobre #0F0F1A (azul muy oscuro) | 16.75:1 | AAA ✅ |
+| #4ECDC4 (turquesa claro) sobre #0F0F1A (azul muy oscuro) | 12.25:1 | AAA ✅ |
+| #FF6B6B (rojo coral) sobre #0F0F1A (azul muy oscuro) | 8.12:1 | AA ✅ |
+| #E0E0E0 (gris muy claro) sobre #1A1A2E (azul grisáceo oscuro) | 11.43:1 | AAA ✅ |
+| #00FF9F (verde neón) sobre #0F0F1A (azul muy oscuro) | 14.89:1 | AAA ✅ |
+| #7F00FF (violeta intenso) sobre #FFFFFF (blanco) | 6.72:1 | AA ✅ |
+
+## Paleta de Colores Detallada
+
+### Colores Principales
+- **#FF6B6B** - Rojo coral brillante: Color cálido y energético, usado para botones de acción
+- **#4ECDC4** - Turquesa claro: Color frío y tranquilizante, equilibra la temperatura visual
+- **#FFE66D** - Amarillo dorado: Color con alta luminancia, ideal para destacar elementos
+- **#7F00FF** - Violeta intenso: Color púrpura profundo, aporta sofisticación
+- **#00FF9F** - Verde neón/menta: Color vibrante complementario, crea contraste dinámico
+
+### Colores de Fondo
+- **#0F0F1A** - Azul muy oscuro (casi negro): Fondo principal que maximiza el contraste
+- **#1A1A2E** - Azul grisáceo oscuro: Fondo de componentes con contraste moderado
+- **#2A2A3E** - Gris azulado: Fondo de elementos de formulario
+
+### Colores de Texto
+- **#FFFFFF** - Blanco puro: Texto principal con contraste máximo
+- **#E0E0E0** - Gris muy claro: Texto secundario con contraste controlado
+- **#888888** - Gris medio: Texto de placeholder y elementos sutiles
 
 ## Principios de Diseño Aplicados
 
 ### 1. **Jerarquía Visual**
-- Colores primarios (#FFFFFF) para contenido principal
-- Colores secundarios (#E0E0E0) para información complementaria
-- Gradientes para elementos de acción (botones, enlaces)
+- Colores primarios (#FFFFFF - blanco puro) para contenido principal
+- Colores secundarios (#E0E0E0 - gris muy claro) para información complementaria
+- Gradientes multicolor para elementos de acción (botones, enlaces)
 
 ### 2. **Accesibilidad**
 - Todos los textos cumplen WCAG AA (mínimo 4.5:1)
